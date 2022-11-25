@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Primeira pagina broo</title>
+</h:head>
+<h:body>
+	<p:dataTable id="tarefasDataTable" value="#{gestaoTarefasBean.listaTarefas}"
+			var="empresa" emptyMessage="Nenhuma informação a ser exibida"
+			paginator="true" rows="10" paginatorPosition="bottom">
+			<p:column headerText="Titulo" sortBy="#{tarefa.titulo}">
+				<h:outputText value="#{tarefa.titulo}" />
+			</p:column>
+			
+			<p:column headerText="Descrição">
+				<h:outputText value="#{tarefa.descricao}" />
+			</p:column>
+			
+			<p:column headerText="Responsavel">
+				<h:outputText value="#{tarefa.responsavel}" />
+			</p:column>
+			
+			<p:column headerText="Prioridade">
+				<h:outputText value="#{tarefa.prioridade}" />
+			</p:column>
+		</p:dataTable>
+</h:body>
+</html>

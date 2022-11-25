@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Cadastro</title>
+</h:head>
+<h:body>
+	<h:form id="form">
+		<p:panel header="Cadastro de tarefa">
+			<h:panelGrid columns="2">
+				<p:outputLabel value="Título" />
+				<p:inputText value="#{gestaoTarefasBean.tarefa.titulo}" />
+
+				<p:outputLabel value="Descrição" />
+				<p:inputTextarea value="#{gestaoTarefasBean.tarefa.descricao}"/>
+
+				<p:outputLabel value="Responsavel" />
+				<h:selectOneMenu value="#{gestaoTarefasBean.tarefa.responsavel}"
+					required="true" label="Text 3">
+					<f:selectItem itemLabel="Samuel" itemValue="Samuel"  />
+					<f:selectItem itemLabel="Marcos" itemValue="Marcos" />
+					<f:selectItem itemLabel="Mariana" itemValue="Mariana" />
+				</h:selectOneMenu>
+				
+				<p:outputLabel value="Prioridade" />
+				<h:selectOneMenu value="#{gestaoTarefasBean.tarefa.prioridade}"
+					required="true" label="Text 3">
+					<f:selectItem itemLabel="Baixa" itemValue="Baixa"  />
+					<f:selectItem itemLabel="Media" itemValue="Media" />
+					<f:selectItem itemLabel="Alta" itemValue="Alta" />
+				</h:selectOneMenu>
+
+				<p:outputLabel value="DeadLine" />
+				<p:inputText type="date" value="#{gestaoTarefasBean.tarefa.deadLine}" />
+
+				<p:commandButton value="Cadastrar" action="#{gestaoTarefasBean.salvar}" update="form"/>
+			</h:panelGrid>
+		</p:panel>
+	</h:form>
+
+
+</h:body>
+</html>
